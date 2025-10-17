@@ -1,0 +1,19 @@
+FROM python:3.11
+
+WORKDIR /app
+
+# Copiar requirements primeiro para aproveitar cache do Docker
+COPY requirements.txt .
+
+# Instalar dependências do sistema (ping), Python e o cliente MySQL
+RUN apt-get update && apt-get install -y iputils-ping && apt-get install -y default-mysql-client && pip install --no-cache-dir -r requirements.txt && rm -rf /var/lib/apt/lists/* 
+
+# Instalar dependências Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar o restante da aplicação
+COPY . .
+
+# Comando padrão
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+

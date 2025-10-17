@@ -1,0 +1,83 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: workout_api_db
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password --bind-address=0.0.0.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: workout
+      MYSQL_USER: work
+      MYSQL_PASSWORD: work
+    ports:
+      - "3307:3306"
+    networks:
+      workout_net:
+        aliases:
+          - db
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -proot | grep 'mysqld is alive' || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 15
+      start_period: 40s
+    #command: 
+      #- --default-authentication-plugin=mysql_native_password
+      #- --innodb-buffer-pool-size=128M
+      #- --skip-log-bin
+    #networks:
+    #  workout_net:
+    #    aliases:
+    #      - db
+    #restart: unless-stopped
+    #healthcheck:
+    #  test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+    #  interval: 5s
+    #  timeout: 5s
+    #  retries: 5
+    
+  app:
+    build: .
+    container_name: workout_api_app
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: mysql+pymysql://work:work@db:3306/workout
+    networks:
+      - workout_net
+
+  api:
+    build: .
+    container_name: workout_api_api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=mysql+pymysql://work:work@db:3306/workout
+    depends_on:
+      - db
+    networks:
+      - workout_net
+   
+  migration:
+    build: .
+    container_name: workout_api_migration
+    command: >
+      sh -c "python wait_for_db.py &&
+             alembic upgrade head"
+    depends_on:
+       db:
+          condition: service_healthy
+    environment:
+      - DATABASE_URL=mysql+pymysql://work:work@db:3306/workout
+      - DB_HOST=db
+      - DB_USER=work
+      - DB_PASSWORD=work
+      - DB_NAME=workout
+    networks:
+      - workout_net
+
+networks:
+  workout_net:
+    driver: bridge
+
+
