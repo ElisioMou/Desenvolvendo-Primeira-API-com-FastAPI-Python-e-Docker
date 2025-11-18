@@ -5,12 +5,16 @@
 
 ### 🚀 Objetivo:
 
-Desenvolver uma API utilizando **FastAPI**, **Python**, **SQLAlchemy** e **MySQL**, seguindo as boas práticas de arquitetura, organização modular, tipagem e tratamento de exceções. O projeto deve incluir:
-* CRUD completo de *Atletas*
-* Filtros via **Query Parameters** (nome, CPF)
-* Customização de responses
-* Manipulação de exceções
-* Integração com banco MySQL usando SQLAlchemy ORM
+Desenvolver uma API utilizando **FastAPI**, **Python**, **Docker**, **SQLAlchemy** e **MySQL**, seguindo as boas práticas de arquitetura, organização modular, tipagem e tratamento de exceções. O projeto deve incluir:
+* CRUD completo de *Categorias*, *Centro de Treinamentos* e *Atletas*;
+* Filtros via **Query Parameters** (nome, CPF);
+* Customização de responses;
+* Manipulação de exceções;
+* Integração com banco MySQL usando SQLAlchemy ORM.
+<br>
+
+ *Obs.*: Opção pelo MySQL Workbench, pois, já instalado e por ter familiarizado mais com este SGBD.
+
 ##
 
 ### 📁 Estrutura do Projeto:
@@ -37,6 +41,7 @@ WORKOUT_API/
 * **FastAPI**
 * **SQLAlchemy ORM**
 * **MySQL 8+**
+* **Docker Desktop for Windows**
 * **Uvicorn** (server ASGI)
   
 ##
@@ -140,7 +145,7 @@ Todas retornam respostas JSON amigáveis.
 ---
 <br>
 
-## 🐳 Docker (opcional)
+## 🐳 Docker Desktop
 
 ### Docker, após configurar `docker-compose.yml`:
 
@@ -157,9 +162,9 @@ docker-compose up --build -d
 ---
 <br>
 
-## ♻️ Migrations + Criação das rotas e configuração dos endpoints
+## ♻️ Migrations, Rotas e configuração dos endpoints
 
-### 🔹Execução docker-compose uploading:
+### 🔹Inicialização da aplicação, conforme definições no docker-compose:
 <img src="https://github.com/user-attachments/assets/0b4e55ff-f98f-4786-ab4f-3a9f2a625631">
 
 ### 🔹Endpoints via Swagger UI:
@@ -171,8 +176,39 @@ docker-compose up --build -d
 
 ---
 
-# ✨ Autor
+##  🛑 Postman
 
-Projeto desenvolvido por **Elisio Moura**, como parte de estudos avançados em FastAPI, boas práticas de backend e arquitetura limpa.
+### 🔹Testando os endpoints da entidade Categorias:
 
-Sinta-se livre para contribuir, abrir issues ou sugerir melhorias!
+<img src="https://github.com/user-attachments/assets/c57c9b74-67f2-4efd-9dc0-c8b5fc1a4a87">
+
+<br>
+
+### 🔹Testando os endpoints da entidade Centro de Treinamento:
+
+<img src="https://github.com/user-attachments/assets/bd9abd4d-a9d3-48e9-baf0-b18671a0e088">
+
+<br>
+
+### 🔹Testando os endpoints da entidade Atletas:
+
+<img src="https://github.com/user-attachments/assets/b08682a6-a5c1-49b2-8715-a0f7c5d0c520">
+
+---
+
+##  💡 Conclusões
+
+Ao final, a API demonstra ser uma ótima base para projetos profissionais que demandam:
+
+* Alto desempenho;
+* Organização clara por camadas;
+* Expansão futura para novos módulos ou domínios;
+* Integração com containers Docker e ambientes Cloud.
+
+Além de que, o projeto reforça o uso de práticas essenciais para APIs modernas:
+
+* Separação de responsabilidades;
+* Padronização de entrada e saída de dados;
+* Uso de Query Parameters para filtros flexíveis.
+
+O resultado é que o projeto da API é prático e admissível, sendo ideal para aplicações mais complexas e escaláveis.
