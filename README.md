@@ -78,7 +78,7 @@ Criação do banco através do arquivo `.env`:
 ```
 DB_USER=root
 DB_PASSWORD=senha
-DB_HOST=localhost
+DB_HOST=db
 DB_PORT=3306
 DB_NAME=workout_db
 ```
@@ -140,25 +140,34 @@ Todas retornam respostas JSON amigáveis.
 ---
 <br>
 
-# 🐳 Docker (opcional)
+## 🐳 Docker (opcional)
 
-Docker, após configurar `docker-compose.yml`:
+### Docker, após configurar `docker-compose.yml`:
 
 ```sh
 docker-compose up --build -d
 ```
 
-🔹A API rodará em container.
+### 🔹A API rodará em container:
 <img src="https://github.com/user-attachments/assets/1cfb97fd-7dc9-4091-b838-cd26ccd68f86">
 
 ### 🔹⚗️ Docker Compose e configuração do Alembic:
 <img src="https://github.com/user-attachments/assets/e151fab0-3a8c-496f-9125-0d6b9af88180">
 
 ---
+<br>
 
-# 📄 Licença
+## ♻️ Migrations + Criação das rotas e configuração dos endpoints
 
-Projeto de código aberto sob licença MIT.
+### 🔹Execução docker-compose uploading:
+<img src="https://github.com/user-attachments/assets/0b4e55ff-f98f-4786-ab4f-3a9f2a625631">
+
+### 🔹Endpoints via Swagger UI:
+<img src="https://github.com/user-attachments/assets/b81f02d1-d048-492d-a7fe-728c98d48ab6">
+
+##
+
+<img src="https://github.com/user-attachments/assets/1a5dff61-9071-4a1b-8e33-b5d9e12c21ea">
 
 ---
 
