@@ -1,16 +1,20 @@
 # Desenvolvendo-Primeira-API-com-FastAPI-Python-e-Docker
+
+
 ## Desafio de projeto 5 - Santander 2025 Back-End com Python
 
-🚀 Objetivo:
+### 🚀 Objetivo:
 
-Criar uma API utilizando **FastAPI**, **Python**, **SQLAlchemy** e **MySQL**, seguindo as boas práticas de arquitetura, organização modular, tipagem e tratamento de exceções. Este projeto inclui:
+Desenvolver uma API utilizando **FastAPI**, **Python**, **SQLAlchemy** e **MySQL**, seguindo as boas práticas de arquitetura, organização modular, tipagem e tratamento de exceções. O projeto deve incluir:
 * CRUD completo de *Atletas*
 * Filtros via **Query Parameters** (nome, CPF)
 * Customização de responses
 * Manipulação de exceções
 * Integração com banco MySQL usando SQLAlchemy ORM
----
-📁 Estrutura do Projeto
+##
+
+### 📁 Estrutura do Projeto:
+
 ```
 WORKOUT_API/
 │-- app/
@@ -27,17 +31,19 @@ WORKOUT_API/
 ├── requirements.txt
 └── README.md
 ```
-🛠️ Tecnologias utilizadas:
+### 🛠️ Tecnologias utilizadas:
 
 * **Python 3.10+**
 * **FastAPI**
 * **SQLAlchemy ORM**
 * **MySQL 8+**
 * **Uvicorn** (server ASGI)
----
-⚙️ Configuração do Ambiente
+  
+##
 
-### 1️⃣ Criar o ambiente virtual
+## ⚙️ Configuração do Ambiente
+
+### 1️⃣ Criação do ambiente virtual
 
 ```sh
 python -m venv venv
@@ -45,7 +51,7 @@ venv\Scripts\activate      # Windows
 ```
 <img src="https://github.com/user-attachments/assets/6c19eb65-cace-4f99-ad1e-8d0f27dfac03">
 
-### 2️⃣ Instalar dependências
+### 2️⃣ Instalação de dependências
 
 ```sh
 pip install -r requirements.txt
@@ -65,9 +71,9 @@ http://127.0.0.1:8000
 <img src="https://github.com/user-attachments/assets/505457c9-79d4-4178-9ef2-71814695792a">
 
 
-## 🗄️ Banco de Dados MySQL
+## 🗄️ Banco de Dados do MySQL🐬
 
-Banco no arquivo `.env`:
+Criação do banco através do arquivo `.env`:
 
 ```
 DB_USER=root
@@ -78,6 +84,8 @@ DB_NAME=workout_db
 ```
 
 A aplicação cria tabelas automaticamente usando SQLAlchemy.
+
+<img src="https://github.com/user-attachments/assets/e5ed4a1b-02ac-43ed-ab6c-52315d2a67ab">
 
 ---
 
@@ -91,7 +99,6 @@ Retorna todos os atletas com os campos:
 * centro_treinamento
 * categoria
 
----
 
 ### 🔹 POST /atletas
 
@@ -109,21 +116,19 @@ Cria um novo atleta.
 }
 ```
 
----
 
 ### 🔹 PUT /atletas/{id}
 
 Atualiza um atleta específico.
 
----
-
 ### 🔹 DELETE /atletas/{id}
 
 Remove um atleta.
+<br> 
 
 ---
 
-# 🛑 Tratamento de Exceções
+## ‼️Tratamento de Exceções
 
 O projeto implementa exceptions personalizadas, como:
 
@@ -131,7 +136,10 @@ O projeto implementa exceptions personalizadas, como:
 * CPF já cadastrado
 * Erros de validação
 Todas retornam respostas JSON amigáveis.
+
 ---
+<br>
+
 # 🐳 Docker (opcional)
 
 Docker, após configurar `docker-compose.yml`:
@@ -140,9 +148,14 @@ Docker, após configurar `docker-compose.yml`:
 docker-compose up --build -d
 ```
 
-A API rodará em container.
+🔹A API rodará em container.
+<img src="https://github.com/user-attachments/assets/1cfb97fd-7dc9-4091-b838-cd26ccd68f86">
+
+### 🔹⚗️ Docker Compose e configuração do Alembic:
+<img src="https://github.com/user-attachments/assets/e151fab0-3a8c-496f-9125-0d6b9af88180">
+
 ---
-<img src="https://github.com/user-attachments/assets/1cfb97fd-7dc9-4091-b838-cd26ccd68f86"/>
+
 # 📄 Licença
 
 Projeto de código aberto sob licença MIT.
